@@ -1,2 +1,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import 'https://necolas.github.io/normalize.css/3.0.3/normalize.css';
+.jumbo {
+  height: 100vh; //visual height units
+  border: 1px solid #000000;
+  background: image_url("bg.jpg");
+  background-size: cover; // scale as the .jumbo grows and shrinks
+  background-position: center; // center the bg instead of putting at top-left
+
+  .littlebox {
+    border: 1px solid #000000;
+    float: right;
+    margin-top: 45vh;
+    margin-right: 50px;
+    background: rgba(#6190A7, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+
+    a {
+      display: block;
+      text-align: center;
+    }
+  }
+}

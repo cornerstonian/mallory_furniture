@@ -1,8 +1,44 @@
+
+
 <div class="page-header">
-  <h1><%= @product.name %></h1>
+  <h1><%= @product.item %></h1>
 </div>
 
+<div class="row">
+  <div class="col-xs-8">
+    <div class="thumbnail text-center">
+      <%= image_tag @product.img_file, class: "large" %>
+    </div>
+  </div>
 
-<div class="thumbnail text-center">
-  <%= img_file @product.image_url, class: "large" %>
+  <div class="col-xs-4">
+
+    <div class="wel">
+      <%= link_to 'Add to Cart', '#', class: "btn btn-lg btn-block btn-warning" %>
+
+        <br>
+
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Price: </strong>
+            <% if @product.condition == "good" %> <br><span class="badge">CLEARANCE ITEM: 10% OFF!</span>
+            <%= number_to_currency @product.price.to_i * 0.9 %>
+            <% elsif @product.condition == "average" %> <br><span class="badge">CLEARANCE ITEM: 20% OFF</span>
+            <%= number_to_currency @product.price.to_i * 0.8 %>
+            <% else %>
+            <%= number_to_currency @product.price %>
+            <% end %>
+          </li>
+          <li class="list-group-item"><strong>Description: </strong><br><%= @product.description %></li>
+          <li class="list-group-item">
+            <strong>Dimensions:</strong><br>Width:
+            <%= @product.dimension_w%><br>Length
+            <%= @product.dimension_l%><br>Height:
+            <%= @product.dimension_h%><br>
+          </li>
+
+        </ul>
+
+      </div>
+
+  </div>
 </div>

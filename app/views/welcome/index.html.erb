@@ -1,13 +1,28 @@
 
+<div class="page-header">
+  <h1>Mallory Furniture</h1>
+</div>
+
+
+<nav>
+  <li>
+    <%= link_to "/" do %>
+      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "/" do %>
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <% end %>
+  </li>
+</nav>
+
+
 <div class="jumbo">
   <div class="littlebox">
+    <p>Not Too Shabby....</p>
     <p>
-      You should buy from us.
-    </p>
-    <p>
-      <%= link_to 'Home', root_path %>
-      <%= link_to 'View Our Offerings', products_path %>
-
+      <%= link_to 'Check Out Our Products', products_path, :class => "btn btn-primary btn-lg" %>
     </p>
   </div>
 </div>

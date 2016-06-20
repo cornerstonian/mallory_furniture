@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def detail
    @products = fetch_products
 
-    @product = @products.find {|p| p.id == params[:id]}
+    @product = @products.find {|p| p.pid == params[:id]}
   end
 
   def fetch_products
@@ -17,6 +17,9 @@ class ProductsController < ApplicationController
 
     CSV.foreach("#{Rails.root}/mf_inventory.csv", headers: true) do |row|
       product_hash = row.to_hash
+
+      if product_hash["quantity"].to_i > 0
+
       product = Product.new
       product.pid = product_hash['pid']
       product.item = product_hash['item']
@@ -28,9 +31,10 @@ class ProductsController < ApplicationController
       product.dimension_h = product_hash['dimension_h']
       product.img_file = product_hash['img_file']
       product.quantity = product_hash['quantity']
-      product.dimension_w = product_hash['category']
+      product.category = product_hash['category']
 
       products << product
+     end
     end
     products
   end

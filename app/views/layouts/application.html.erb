@@ -8,6 +8,22 @@
 </head>
 <body>
 
+  <div class="home-back">
+    <ul>
+      <li>
+        <%= link_to root_path do %>
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          <% end %>
+        </a>
+      </li>
+      <li>
+        <%= link_to :back do %>
+          <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+         <% end %>
+      </li>
+    </ul>
+  </div>
+
   <div class="container">
     <%= yield %>
   </div>

@@ -17,14 +17,16 @@
 
         <ul class="list-group">
           <li class="list-group-item"><strong>Price: </strong>
-            <% if @product.condition == "good" %> <br><span class="badge">CLEARANCE ITEM: 10% OFF!</span>
-            <%= number_to_currency @product.price.to_i * 0.9 %>
-            <% elsif @product.condition == "average" %> <br><span class="badge">CLEARANCE ITEM: 20% OFF</span>
-            <%= number_to_currency @product.price.to_i * 0.8 %>
-            <% else %>
-            <%= number_to_currency @product.price %>
-            <% end %>
-          </li>
+
+          <% if @product.condition == "good" %> <br><span class="badge">CLEARANCE: 10% OFF!</span>
+          <%= number_to_currency @product.price.to_i * 0.9 %>
+          <% elsif @product.condition == "average" %> <br><span class="badge">CLEARANCE: 20% OFF</span>
+          <%= number_to_currency @product.price.to_i * 0.8 %>
+          <% else %>
+          <%= number_to_currency @product.price %>
+          <% end %>
+
+        </li>
           <li class="list-group-item"><strong>Description: </strong><br><%= @product.description %></li>
           <li class="list-group-item">
             <strong>Dimensions:</strong><br>Width:
